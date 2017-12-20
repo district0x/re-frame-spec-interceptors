@@ -32,8 +32,10 @@ This library contains 4 interceptors:
    (fn []
      {:db {:a "wrong"}}))
      
- (dispatch [::invalid-db])
+ (dispatch [::validate-db])
  ;; Throws error with spec explanation
+ 
+ 
  
  ;; validate-args
 (reg-event-fx
@@ -45,6 +47,8 @@ This library contains 4 interceptors:
 ;; Throws error with spec explanation
 
 
+
+
 ;; validate-first-arg
 (reg-event-fx
   ::validate-first-arg
@@ -54,7 +58,9 @@ This library contains 4 interceptors:
 (dispatch [::validate-first-arg "wrong"])
 ;; Throws error with spec explanation
 
-;; 
+
+
+;; conform-args
 (reg-event-fx
   ::conform-args
   [trim-v (conform-args (s/cat :a int? :b string?))]
