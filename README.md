@@ -32,7 +32,7 @@ This library contains 4 interceptors:
    (fn []
      {:db {:a "wrong"}}))
      
- (dispatch[::invalid-db])
+ (dispatch [::invalid-db])
  ;; Throws error with spec explanation
  
  ;; validate-args
@@ -51,7 +51,7 @@ This library contains 4 interceptors:
   [trim-v (validate-first-arg ::a)]
   (fn []))
 
-(dispatch[::validate-first-arg "wrong"])
+(dispatch [::validate-first-arg "wrong"])
 ;; Throws error with spec explanation
 
 ;; 
