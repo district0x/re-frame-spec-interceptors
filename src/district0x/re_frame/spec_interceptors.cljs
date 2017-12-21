@@ -12,7 +12,7 @@
     :id :validate-db
     :after (fn [{{:keys [:event :re-frame.std-interceptors/untrimmed-event]} :coeffects
                  {:keys [:db]} :effects :as context}]
-             (when (and goog.DEBUG db (not (s/valid? spec db)))
+             (when (and (s/check-asserts?) db (not (s/valid? spec db)))
                (console :log db)
                (throw (js/Error. (str "DB is invalid after event"
                                       (or untrimmed-event event) "\n"
@@ -25,7 +25,7 @@
   (re-frame/->interceptor
     :id :validate-args
     :before (fn [{{:keys [:event :re-frame.std-interceptors/untrimmed-event]} :coeffects :as context}]
-              (if (and goog.DEBUG (not (s/valid? spec event)))
+              (if (and (s/check-asserts?) (not (s/valid? spec event)))
                 (throw-event-error event untrimmed-event spec)
                 context))))
 
@@ -34,7 +34,7 @@
   (re-frame/->interceptor
     :id :validate-args
     :before (fn [{{:keys [:event :re-frame.std-interceptors/untrimmed-event]} :coeffects :as context}]
-              (if (and goog.DEBUG (not (s/valid? spec (first event))))
+              (if (and (s/check-asserts?) (not (s/valid? spec (first event))))
                 (throw-event-error (first event) untrimmed-event spec)
                 context))))
 

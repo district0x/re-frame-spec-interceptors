@@ -1,4 +1,4 @@
-(defproject district0x/re-frame-spec-interceptors "1.0.0"
+(defproject district0x/re-frame-spec-interceptors "1.0.1"
   :description "Reframe event interceptors for validating db and args with spec"
   :url "https://github.com/district0x/re-frame-spec-interceptors"
   :license {:name "Eclipse Public License"

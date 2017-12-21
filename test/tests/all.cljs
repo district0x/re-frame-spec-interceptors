@@ -5,6 +5,8 @@
     [district0x.re-frame.spec-interceptors :refer [validate-db validate-args validate-first-arg conform-args]]
     [re-frame.core :refer [reg-event-fx dispatch-sync trim-v]]))
 
+(s/check-asserts true)
+
 (s/def ::a int?)
 (s/def ::db (s/keys :req-un [::a]))
 

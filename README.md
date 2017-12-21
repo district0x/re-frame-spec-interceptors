@@ -5,7 +5,7 @@
 [re-frame](https://github.com/Day8/re-frame) event interceptors for validating db and args with spec
 
 ## Installation
-Add `[district0x/re-frame-spec-interceptors "1.0.0"]` into your project.clj  
+Add `[district0x/re-frame-spec-interceptors "1.0.1"]` into your project.clj  
 Include `[district0x.re-frame.spec-interceptors]` in your CLJS file
 
 ## Usage
@@ -21,6 +21,8 @@ This library contains 4 interceptors:
     [cljs.spec.alpha :as s]
     [district0x.re-frame.spec-interceptors :refer [validate-db validate-args validate-first-arg conform-args]]
     [re-frame.core :refer [reg-event-fx dispatch trim-v]]))
+    
+(s/check-asserts true) ;; Don't forget this, otherwise validation is not enabled
     
  (s/def ::a int?)
  (s/def ::db (s/keys :req-un [::a]))
